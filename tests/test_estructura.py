@@ -31,7 +31,6 @@ def test_skill_md_has_required_frontmatter_fields():
 def test_skill_md_size_limit():
     content = (SKILL_ROOT / "SKILL.md").read_text()
     assert len(content) <= 100_000, f"SKILL.md demasiado grande ({len(content)} > 100k)"
-    # Peer-matched: idealmente < 20k
     assert len(content) <= 20_000, f"SKILL.md > 20k, debería dividir a references/"
 
 
@@ -41,7 +40,6 @@ def test_48_law_files_exist():
 
 
 def test_48_law_numbers_present_in_references():
-    """Verifica que los numeros 1-48 aparezcan en los archivos de leyes."""
     law_files = sorted(REFS.glob("*-leyes-*.md"))
     all_text = "".join(f.read_text() for f in law_files)
     missing = [n for n in range(1, 49) if not re.search(rf"# Ley {n}\b", all_text)]
@@ -49,17 +47,16 @@ def test_48_law_numbers_present_in_references():
 
 
 def test_6_categorias_present():
-    """Verifica que las 6 categorias aparezcan en references/01-categorias.md."""
     cats_file = REFS / "01-categorias.md"
     assert cats_file.is_file(), "01-categorias.md no existe"
     content = cats_file.read_text()
     expected = [
         "Autoridad y Presencia",
         "Estrategia y Tiempo",
-        "Reputacion y Percepcion",
+        "Reputación y Percepción",
         "Relaciones y Alianzas",
         "Autodefensa",
-        "Psicologia y Sombra",
+        "Psicología y Sombra",
     ]
     for cat in expected:
         assert cat in content, f"Categoria '{cat}' no encontrada"
