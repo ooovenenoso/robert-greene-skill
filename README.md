@@ -1,5 +1,7 @@
 # Robert Greene — Hermes Skill
 
+![Header banner — Robert Greene Skill](assets/header.jpg)
+
 > Las 48 Leyes del Poder empaquetadas como skill de [Hermes Agent](https://hermes-agent.nousresearch.com).
 
 [![Skill](https://img.shields.io/badge/hermes-skill-blue)]()
@@ -44,25 +46,27 @@ Pasar la ruta absoluta a `skill_view()` cuando el loader lo soporte.
 
 ```
 skills/self-improvement/robert-greene/
-├── SKILL.md                      # Entry point (≤ 20k chars, peer-matched)
+├── SKILL.md                      # Entry point (<= 20k chars, peer-matched)
 ├── references/
-│   ├── 00-glosario.md            # Vocabulario recurrente
-│   ├── 01-categorias.md          # Las 6 categorías consolidadas
-│   ├── 02-leyes-01-08.md         # Bloque 1: Autoridad y Presencia
-│   ├── 03-leyes-09-16.md         # Bloque 2: Estrategia y Tiempo
-│   ├── 04-leyes-17-24.md         # Bloque 3: Continuación
-│   ├── 05-leyes-25-32.md         # Bloque 4: Reputación y Psicología
-│   ├── 06-leyes-33-40.md         # Bloque 5: Autodefensa
-│   ├── 07-leyes-41-48.md         # Bloque 6: Cierre
-│   ├── 08-compendios.md          # resumen + mapa de leyes
-│   ├── 09-figuras-historicas.md  # ~25 personajes citados
-│   ├── 10-bibliografia.md        # Greene + obras complementarias
-│   └── 11-como-estudiar.md       # Método de 4 niveles
+│   ├── 00-glossary.md            # Vocabulario recurrente
+│   ├── 01-categories.md          # Las 6 categorias consolidadas
+│   ├── 02-laws-01-08.md         # Bloque 1: Autoridad y Presencia
+│   ├── 03-laws-09-16.md         # Bloque 2: Estrategia y Tiempo
+│   ├── 04-laws-17-24.md         # Bloque 3: Continuacion
+│   ├── 05-laws-25-32.md         # Bloque 4: Reputacion y Psicologia
+│   ├── 06-laws-33-40.md         # Bloque 5: Autodefensa
+│   ├── 07-laws-41-48.md         # Bloque 6: Cierre
+│   ├── 08-compendiums.md         # resumen + mapa de leyes
+│   ├── 09-historical-figures.md  # ~25 personajes citados
+│   ├── 10-bibliography.md        # Greene + obras complementarias
+│   └── 11-how-to-study.md        # Metodo de 4 niveles
 └── scripts/
-    ├── listar_leyes.py            # Índice navegable
-    ├── buscar_por_categoria.py   # Búsqueda por palabra clave
-    └── validar_skill.py          # Validador CLI
+    ├── list_laws.py               # Indice navegable
+    ├── search_by_category.py      # Busqueda por palabra clave
+    └── validate_skill.py          # Validador CLI
 ```
+
+`assets/` contiene la imagen de banner del README (`header.jpg`, 1280x511).
 
 ## Uso
 
