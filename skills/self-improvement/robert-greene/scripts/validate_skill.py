@@ -52,7 +52,7 @@ if REFS.is_dir():
     check(len(law_files) == 6, f"6 law files (found: {len(law_files)})")
 
     all_text = "".join(f.read_text() for f in law_files)
-    missing = [n for n in range(1, 49) if not re.search(rf"# Ley {n}\b", all_text)]
+    missing = [n for n in range(1, 49) if not re.search(rf"# Law {n} -", all_text)]
     check(not missing, f"All 48 laws present (missing: {missing or 'none'})")
 else:
     ERRORS.append("references/ does not exist")

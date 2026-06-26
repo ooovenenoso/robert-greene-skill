@@ -1,7 +1,7 @@
 ---
 name: robert-greene
 description: "Use when the user asks about Las 48 Leyes del Poder, Robert Greene's power dynamics, wants a specific law cited by number or theme, asks which law applies to a specific situation (negotiation, conflict, leadership, seduction, reputation, self-defense, time strategy, or influence dynamics), or wants the ethical considerations around applying a specific law. Distinguish defensive, applied-with-ethics, and toxic use before recommending any application."
-version: 1.1.0
+version: 1.2.0
 author: Kevin Ramos Montañez
 license: MIT
 metadata:
@@ -9,6 +9,7 @@ metadata:
     tags: [self-improvement, robert-greene, power, strategy, philosophy, ethics, persuasion]
     related_skills: [plan, hermes-skill-operations]
 changelog:
+  - 1.2.0 (2026-06-26): Translated all 48 law bodies from Spanish to English; updated tests, scripts, and SKILL.md to enforce English-only references. Repo is now 100% English.
   - 1.1.0 (2026-06-26): Translated to English, restyled to peer shape (removed decorative emojis, tightened frontmatter, peer-matched description), added scripts/ utility index in body.
   - 1.0.0 (2026-06-26): Initial Spanish release with 48 laws across 6 categories.
 ---
@@ -138,7 +139,7 @@ Full detail in [`references/01-categories.md`](references/01-categories.md).
 47. Do not go past the target you were aiming at — victory can be a trap
 48. Assume formlessness — flow like water
 
-> Note: Law titles above use Robert Greene's published English phrasing. The compendium ([`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder)) uses personalized English translations; both are valid for citation.
+> Note: Law titles above use Robert Greene's published English phrasing. The source compendium ([`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder)) uses personalized Spanish translations; both versions are valid for citation. This skill's full law bodies (in `references/02-laws-01-08.md` through `references/07-laws-41-48.md`) are written in English.
 
 ## Recommendation patterns
 

@@ -12,7 +12,7 @@ def search(query: str):
     results = []
     for f in sorted(REFS.glob("*-laws-*.md")):
         text = f.read_text(encoding="utf-8")
-        for m in re.finditer(r"^# Ley (\d+) — (.+)$", text, re.MULTILINE):
+        for m in re.finditer(r"^# Law (\d+) - (.+)$", text, re.MULTILINE):
             n, title = int(m.group(1)), m.group(2).strip()
             if query_lower in title.lower():
                 results.append((n, title, f.name))
@@ -25,7 +25,7 @@ if __name__ == "__main__":
         print("Example: search_by_category.py silence")
         sys.exit(1)
     results = search(sys.argv[1])
-    print(f"# Search: '{sys.argv[1]}' — {len(results)} results\n")
+    print(f"# Search: '{sys.argv[1]}' - {len(results)} results\n")
     if not results:
         print("(no results)")
     else:

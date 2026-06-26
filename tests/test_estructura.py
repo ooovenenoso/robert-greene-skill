@@ -40,9 +40,10 @@ def test_48_law_files_exist():
 
 
 def test_48_law_numbers_present_in_references():
+    """Every law 1..48 must appear with its title."""
     law_files = sorted(REFS.glob("*-laws-*.md"))
     all_text = "".join(f.read_text() for f in law_files)
-    missing = [n for n in range(1, 49) if not re.search(rf"# Ley {n}\b", all_text)]
+    missing = [n for n in range(1, 49) if not re.search(rf"^# Law {n} -", all_text, re.MULTILINE)]
     assert not missing, f"Missing laws: {missing}"
 
 
@@ -68,14 +69,12 @@ def test_scripts_directory_has_3_scripts():
 
 
 def test_scripts_have_english_names():
-    """After translation, script names must be in English."""
     scripts = sorted(p.name for p in SCRIPTS.glob("*.py"))
     expected = {"list_laws.py", "search_by_category.py", "validate_skill.py"}
     assert set(scripts) >= expected, f"Missing scripts: {expected - set(scripts)}"
 
 
 def test_references_have_english_names():
-    """Reference files use English names."""
     refs = sorted(p.name for p in REFS.glob("*.md"))
     assert "01-categories.md" in refs, "01-categories.md missing"
     assert "08-compendiums.md" in refs, "08-compendiums.md missing"
@@ -84,8 +83,26 @@ def test_references_have_english_names():
 
 
 def test_skill_md_in_english():
-    """SKILL.md body should be primarily English (sample check)."""
     content = (SKILL_ROOT / "SKILL.md").read_text()
-    # Check first body paragraph is in English
     assert "Class-level skill" in content or "Use this skill" in content, \
         "SKILL.md body should be in English"
+
+
+def test_all_48_laws_in_english():
+    """No Spanish section headers should remain in law files."""
+    law_files = sorted(REFS.glob("*-laws-*.md"))
+    spanish_headers = ["Principio:", "Mecánica", "Aplicación práctica", "Caso histórico", "Trampa"]
+    for f in law_files:
+        text = f.read_text()
+        for h in spanish_headers:
+            assert h not in text, f"Spanish header '{h}' found in {f.name}"
+
+
+def test_law_files_have_required_sections():
+    """Each law must contain all 6 required English section headers."""
+    law_files = sorted(REFS.glob("*-laws-*.md"))
+    required = ["Principle:", "Key phrase", "Mechanics", "Practical application", "Trap", "Historical case", "Category"]
+    for f in law_files:
+        text = f.read_text()
+        for r in required:
+            assert r in text, f"Section '{r}' missing in {f.name}"

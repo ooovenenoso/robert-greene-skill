@@ -11,10 +11,10 @@ def list_laws():
     laws = []
     for f in sorted(REFS.glob("*-laws-*.md")):
         text = f.read_text(encoding="utf-8")
-        for m in re.finditer(r"^# Ley (\d+) — (.+)$", text, re.MULTILINE):
+        for m in re.finditer(r"^# Law (\d+) - (.+)$", text, re.MULTILINE):
             laws.append((int(m.group(1)), m.group(2).strip(), f.name))
     laws.sort()
-    print("# 48 Laws of Power — Index\n")
+    print("# 48 Laws of Power - Index\n")
     print("| # | Law | Source file |")
     print("|---|-----|-------------|")
     for n, title, source in laws:
