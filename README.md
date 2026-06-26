@@ -2,26 +2,26 @@
 
 ![Header banner — Robert Greene Skill](assets/header.jpg)
 
-> Las 48 Leyes del Poder empaquetadas como skill de [Hermes Agent](https://hermes-agent.nousresearch.com).
+> The 48 Laws of Power packaged as a [Hermes Agent](https://hermes-agent.nousresearch.com) skill.
 
 [![Skill](https://img.shields.io/badge/hermes-skill-blue)]()
 [![License](https://img.shields.io/badge/license-MIT-green)]()
-[![Leyes](https://img.shields.io/badge/leyes-48%2F48-purple)]()
+[![Laws](https://img.shields.io/badge/laws-48%2F48-purple)]()
 
-## ¿Qué es esto?
+## What is this?
 
-Esta skill convierte el compendio [`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder) en una **skill consultable** por cualquier sesión de Hermes. Cuando se carga, el agente puede:
+This skill distills the public compendium [`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder) into a **consultable skill** that any Hermes session can load. Once loaded, the agent can:
 
-- Citar cualquier ley con contexto
-- Recomendar la ley adecuada para una situación
-- Explicar tensiones entre leyes complementarias
-- Señalar trampas éticas de aplicación
+- Cite any law with context
+- Recommend the right law for a situation
+- Explain tensions between complementary laws
+- Flag ethical traps in application
 
-> ⚠️ **Estado actual:** Este repo está publicado para **análisis y revisión** de la estructura de la skill. **NO está instalado** en `~/.hermes/skills/` del autor ni de nadie más. Si quieres probarlo en tu instalación de Hermes, sigue las instrucciones de abajo.
+> ⚠️ **Current state:** This repo is published for **analysis and review** of the skill structure. It is **not installed** in `~/.hermes/skills/` of the author or anyone else. If you want to try it in your own Hermes installation, follow the instructions below.
 
-## Instalación (opcional, manual)
+## Installation (optional, manual)
 
-### Opción A: Symlink al loader de Hermes
+### Option A: Symlink to the Hermes loader
 
 ```bash
 git clone https://github.com/ooovenenoso/robert-greene-skill.git
@@ -30,64 +30,64 @@ ln -s "$(pwd)/robert-greene-skill/skills/self-improvement/robert-greene" \
       ~/.hermes/skills/self-improvement/robert-greene
 ```
 
-Después de esto, en una sesión **nueva** de Hermes:
+Then, in a **new** Hermes session:
 
 ```
 skill_view(name='robert-greene')
 ```
 
-> Nota: el loader de Hermes está cacheado por sesión, así que la skill solo será visible en sesiones iniciadas **después** del symlink.
+> Note: the Hermes loader is cached per session, so the skill will only become visible in sessions started **after** the symlink.
 
-### Opción B: Carga directa desde path absoluto
+### Option B: Direct load from absolute path
 
-Pasar la ruta absoluta a `skill_view()` cuando el loader lo soporte.
+Pass the absolute path to `skill_view()` when the loader supports it.
 
-## Estructura
+## Structure
 
 ```
 skills/self-improvement/robert-greene/
 ├── SKILL.md                      # Entry point (<= 20k chars, peer-matched)
 ├── references/
-│   ├── 00-glossary.md            # Vocabulario recurrente
-│   ├── 01-categories.md          # Las 6 categorias consolidadas
-│   ├── 02-laws-01-08.md         # Bloque 1: Autoridad y Presencia
-│   ├── 03-laws-09-16.md         # Bloque 2: Estrategia y Tiempo
-│   ├── 04-laws-17-24.md         # Bloque 3: Continuacion
-│   ├── 05-laws-25-32.md         # Bloque 4: Reputacion y Psicologia
-│   ├── 06-laws-33-40.md         # Bloque 5: Autodefensa
-│   ├── 07-laws-41-48.md         # Bloque 6: Cierre
-│   ├── 08-compendiums.md         # resumen + mapa de leyes
-│   ├── 09-historical-figures.md  # ~25 personajes citados
-│   ├── 10-bibliography.md        # Greene + obras complementarias
-│   └── 11-how-to-study.md        # Metodo de 4 niveles
+│   ├── 00-glossary.md            # Recurring vocabulary
+│   ├── 01-categories.md          # The 6 categories consolidated
+│   ├── 02-laws-01-08.md         # Block 1: Authority and Presence
+│   ├── 03-laws-09-16.md         # Block 2: Strategy and Timing
+│   ├── 04-laws-17-24.md         # Block 3: Continuation
+│   ├── 05-laws-25-32.md         # Block 4: Reputation and Psychology
+│   ├── 06-laws-33-40.md         # Block 5: Self-Defense
+│   ├── 07-laws-41-48.md         # Block 6: Closing
+│   ├── 08-compendiums.md         # summary + map of laws
+│   ├── 09-historical-figures.md  # ~25 cited figures
+│   ├── 10-bibliography.md        # Greene + complementary works
+│   └── 11-how-to-study.md        # 4-level method
 └── scripts/
-    ├── list_laws.py               # Indice navegable
-    ├── search_by_category.py      # Busqueda por palabra clave
-    └── validate_skill.py          # Validador CLI
+    ├── list_laws.py               # Navigable index
+    ├── search_by_category.py      # Keyword search
+    └── validate_skill.py          # CLI validator
 ```
 
-`assets/` contiene la imagen de banner del README (`header.jpg`, 1280x511).
+`assets/` contains the README banner image (`header.jpg`, 1280x511).
 
-## Uso
+## Usage
 
-Una vez instalada, en cualquier sesión de Hermes:
+Once installed, in any Hermes session:
 
 ```
-Usuario: "¿Qué ley aplica cuando quiero pedir un aumento?"
-Hermes: [carga skill robert-greene → recomienda Ley 13 + Ley 45 + Ley 9]
+User: "Which law applies when I want to ask for a raise?"
+Hermes: [loads robert-greene skill -> recommends Law 13 + Law 45 + Law 9]
 ```
 
-## Scripts incluidos
+## Included scripts
 
 ```bash
-# Listar las 48 leyes
-python3 skills/self-improvement/robert-greene/scripts/listar_leyes.py
+# List the 48 laws
+python3 skills/self-improvement/robert-greene/scripts/list_laws.py
 
-# Buscar por palabra clave
-python3 skills/self-improvement/robert-greene/scripts/buscar_por_categoria.py silencio
+# Search by keyword
+python3 skills/self-improvement/robert-greene/scripts/search_by_category.py silence
 
-# Validar estructura (sin pytest)
-python3 skills/self-improvement/robert-greene/scripts/validar_skill.py
+# Validate structure (without pytest)
+python3 skills/self-improvement/robert-greene/scripts/validate_skill.py
 ```
 
 ## Tests
@@ -97,15 +97,15 @@ pip install pytest pyyaml
 python3 -m pytest tests/ -v
 ```
 
-## Licencia
+## License
 
-MIT — ver [`LICENSE`](LICENSE).
+MIT — see [`LICENSE`](LICENSE).
 
-## Crítica
+## Provenance
 
-El material es **inspirado** en la obra de Robert Greene; el texto completo de cada ley es **original** de este repo y del compendio [`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder). El SKILL.md incluye un marco ético obligatorio (🟢 defensivo / 🟡 aplicado / 🔴 tóxico) para guiar el uso del agente.
+The material is **inspired** by Robert Greene's work; the full text of each law is **original** to this repo and the source compendium ([`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder)). The `SKILL.md` includes a mandatory ethical framework (defensive / applied-with-ethics / toxic) to guide the agent's use.
 
-## Repo relacionado
+## Related repos
 
-- Compendio fuente: [`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder)
-- Esta skill: [`ooovenenoso/robert-greene-skill`](https://github.com/ooovenenoso/robert-greene-skill)
+- Source compendium: [`ooovenenoso/48-leyes-del-poder`](https://github.com/ooovenenoso/48-leyes-del-poder) (Spanish)
+- This skill: [`ooovenenoso/robert-greene-skill`](https://github.com/ooovenenoso/robert-greene-skill) (English)
